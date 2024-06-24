@@ -3,12 +3,15 @@ package com.projet1.sys_pointage.operation;
 import com.projet1.sys_pointage.traitement.Calendrier;
 import com.projet1.sys_pointage.traitement.Categories;
 import com.projet1.sys_pointage.traitement.TypeCategorie;
+import lombok.Getter;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+
+@Getter
 public class CalendrierEtSalaire {
 
     public Calendrier CalendrierNormaux(List<Date> joursFeries) {
@@ -34,6 +37,7 @@ public class CalendrierEtSalaire {
         Calendrier calendrier1 = new Calendrier(jourDeTravailleNormaux, joursFeries, joursDeTravailleGardien);
         return calendrier1;
     }
+
     public Calendrier CalendrierGardien(List<Date> joursFeries) {
         List<Date> jourDeTravailleNormaux = new ArrayList<>();
         List<Date> joursDeTravailleGardien = new ArrayList<>();
@@ -52,6 +56,7 @@ public class CalendrierEtSalaire {
         Calendrier calendrier1 = new Calendrier(jourDeTravailleNormaux, joursFeries, joursDeTravailleGardien);
         return calendrier1;
     }
+
 
     public void employeesCategorie(TypeCategorie typeCategorie){
         Calendrier calendrier = new Calendrier();
