@@ -29,11 +29,14 @@ public class SysPointageApplication {
 		}
 
 		CalendrierEtSalaire calendrierEtSalaire = new CalendrierEtSalaire();
-		Calendrier calendrier = calendrierEtSalaire.CreationDeCalendrier(joursFeries);
-		afficherCalendrier(calendrier);
+		Calendrier calendrier = calendrierEtSalaire.CalendrierNormaux(joursFeries);
+		afficherCalendrierNormaux(calendrier);
+
+		Calendrier calendrier1 = calendrierEtSalaire.CalendrierGardien(joursFeries);
+		afficherCalendrierGardien(calendrier1);
 	}
 
-	public static void afficherCalendrier(Calendrier calendrier) {
+	public static void afficherCalendrierNormaux(Calendrier calendrier) {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 
 		System.out.println("Jours de travail en juin 2024 pour les employes normaux :");
@@ -45,9 +48,16 @@ public class SysPointageApplication {
 		for (Date date : calendrier.getJoursFeries()) {
 			System.out.println(sdf.format(date));
 		}
+	}
 
+	public static void afficherCalendrierGardien(Calendrier calendrier){
+		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 		System.out.println("Jours de travail en juin 2024 pour les gardiens : ");
 		for (Date date : calendrier.getJoursDeTravaillesGardiens()){
+			System.out.println(sdf.format(date));
+		}
+		System.out.println("Jours feries en juin 2024 :");
+		for (Date date : calendrier.getJoursFeries()) {
 			System.out.println(sdf.format(date));
 		}
 	}
