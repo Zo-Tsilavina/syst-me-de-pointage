@@ -16,7 +16,7 @@ import java.util.List;
 @NoArgsConstructor
 public class Pointage {
     private Employe employe;
-    private static HashMap<Date, Boolean> pointageMap = new HashMap<>();
+    private final HashMap<Date, Boolean> pointageMap = new HashMap<>();
 
     public void EnregistrerPresence(Calendrier calendrier){
         List<Date> jourDeTravail = calendrier.getJoursDeTravaillesGardiens();
